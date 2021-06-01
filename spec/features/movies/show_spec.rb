@@ -36,6 +36,11 @@ RSpec.describe 'movie show page' do
     end
   end
 
+  it "I do not see any actors listed that are not part of the movie" do
+    expect(page).to_not have_content(@actor3.name)
+    expect(page).to_not have_content(@actor4.name)
+  end
+
   it "I see a form to add an actor to this movie" do
     expect(current_path).to eq(movie_path(@movies1))
     expect(page).to have_field('Name')
