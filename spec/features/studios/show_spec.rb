@@ -29,4 +29,21 @@ RSpec.describe 'studio show page' do
       expect(page).to have_content(@movies2.title)
     end
   end
+
+  it "I see a list of actors that have acted in any of the studio's movies" do
+
+    within "#studio-actor-#{@actor1.id}" do
+      expect(page).to have_content(@actor1.name)
+    end
+    within "#studio-actor-#{@actor3.id}" do
+      expect(page).to have_content(@actor3.name)
+    end
+    within "#studio-actor-#{@actor4.id}" do
+      expect(page).to have_content(@actor4.name)
+    end
+  end
+
+  it "shows actors with no duplicates, ordered from oldest actor to youngest, only includes actors that are currently working" do
+    expect(@actor3.name).to appear_before(@actor1.name)
+  end
 end
