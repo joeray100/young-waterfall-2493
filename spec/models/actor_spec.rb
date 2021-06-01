@@ -25,6 +25,17 @@ RSpec.describe Actor, type: :model do
     describe '.find_actor' do
       it "should find actor in db by name" do
         expect(Actor.find_actor("em")).to eq([@actor3])
+
+        expect(Actor.find_actor("em")).to_not eq([@actor4])
+      end
+    end
+
+    describe '.worked_with' do
+      it "should find unique list of all of the actors this particular actor has worked with" do
+        #this is testing @actor3 = Emma Stone is the actor who's show page we are visiting
+        expect(Actor.worked_with).to eq([@actor4])
+
+        expect(Actor.worked_with).to_not eq([@actor3])
       end
     end
   end
