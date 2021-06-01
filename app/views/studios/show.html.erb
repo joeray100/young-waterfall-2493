@@ -1,0 +1,9 @@
+<h3><%= @studio.name %>'s Page</h3>
+<p>Located at <%= @studio.location %></p>
+
+<h3><%= @studio.name %>'s Movie Titles</h3>
+<% @studio.movies.each do |movie| %>
+  <section id="studio-movie-<%= movie.id %>"> 
+    <li><%= movie.title %></li>
+  </section>
+<% end %>
