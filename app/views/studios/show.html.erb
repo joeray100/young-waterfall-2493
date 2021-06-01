@@ -3,7 +3,14 @@
 
 <h3><%= @studio.name %>'s Movie Titles</h3>
 <% @studio.movies.each do |movie| %>
-  <section id="studio-movie-<%= movie.id %>"> 
+  <section id="studio-movie-<%= movie.id %>">
     <li><%= movie.title %></li>
+  </section>
+<% end %>
+
+<h3>Actors who have been in <%= @studio.name %>'s movies</h3>
+<% @studio_actors.each do |actor| %>
+  <section id="studio-actor-<%= actor.id %>"> 
+    <li><%= actor.name %></li>
   </section>
 <% end %>
