@@ -8,3 +8,11 @@
     <li><%= actor.name %></li>
   </section>
 <% end %><br/><br/>
+
+<h3>Add new Actor to this movie</h3>
+<%= form_with url: movie_path(@movie), method: :get, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, value: 'Jackie Chan' %><br/><br/>
+
+  <%= f.submit 'Submit ' %>
+<% end %>
